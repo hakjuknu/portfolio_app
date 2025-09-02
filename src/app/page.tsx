@@ -106,7 +106,7 @@ function HeroSection() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             안녕하세요,
             <br />
-            <span className="gradient-text">luzanchik2  </span> 입니다
+            <span className="text-green-500 font-bold">luzanchik</span> 입니다
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-gradient-start to-gradient-end mx-auto rounded-full"></div>
         </div>
