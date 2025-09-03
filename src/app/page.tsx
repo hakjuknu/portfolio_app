@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -309,42 +310,48 @@ function PortfolioSection() {
       description: '모던한 온라인 쇼핑몰 플랫폼으로 사용자 친화적인 UI와 안전한 결제 시스템을 구축했습니다.',
       tech: ['React', 'Next.js', 'TypeScript', 'Stripe'],
       category: 'Web Development',
-      color: 'from-blue-500 to-purple-600'
+      color: 'from-blue-500 to-purple-600',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'Task Management App', 
       description: '팀 협업을 위한 실시간 작업 관리 애플리케이션으로 직관적인 칸반 보드를 제공합니다.',
       tech: ['Next.js', 'Node.js', 'Socket.io', 'MongoDB'],
       category: 'Full Stack',
-      color: 'from-green-500 to-teal-600'
+      color: 'from-green-500 to-teal-600',
+      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'Portfolio Website',
       description: '반응형 포트폴리오 웹사이트로 세련된 애니메이션과 최적화된 성능을 자랑합니다.',
       tech: ['Next.js', 'Tailwind', 'Framer Motion'],
       category: 'Frontend',
-      color: 'from-pink-500 to-rose-600'
+      color: 'from-pink-500 to-rose-600',
+      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'Data Dashboard',
       description: '비즈니스 데이터 시각화를 위한 대시보드로 실시간 차트와 분석 기능을 제공합니다.',
       tech: ['React', 'D3.js', 'Python', 'FastAPI'],
       category: 'Data Visualization',
-      color: 'from-orange-500 to-red-600'
+      color: 'from-orange-500 to-red-600',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'Mobile Banking App',
       description: '보안이 강화된 모바일 뱅킹 앱으로 생체 인증과 암호화된 거래를 지원합니다.',
       tech: ['React Native', 'Node.js', 'PostgreSQL'],
       category: 'Mobile',
-      color: 'from-indigo-500 to-blue-600'
+      color: 'from-indigo-500 to-blue-600',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     },
     {
       title: 'AI Chatbot Service',
       description: 'GPT를 활용한 고객 서비스 챗봇으로 자연스러운 대화와 문제 해결을 제공합니다.',
       tech: ['Python', 'OpenAI API', 'FastAPI', 'Redis'],
       category: 'AI/ML',
-      color: 'from-purple-500 to-indigo-600'
+      color: 'from-purple-500 to-indigo-600',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
     }
   ];
 
@@ -365,15 +372,22 @@ function PortfolioSection() {
           {projects.map((project, index) => (
             <div key={index} className="group cursor-pointer">
               <div className="glass-morphism rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 hover:shadow-2xl">
-                {/* Project Image/Icon */}
-                <div className={`aspect-video bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                  <div className="text-6xl sm:text-7xl opacity-90 text-white">💻</div>
+                {/* Project Image */}
+                <div className="aspect-video relative overflow-hidden">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title}
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium text-white">
                       {project.category}
                     </span>
                   </div>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${project.color}`}></div>
                 </div>
                 
                 {/* Project Content */}
